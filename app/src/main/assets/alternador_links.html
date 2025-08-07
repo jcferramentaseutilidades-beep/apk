@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Alternador de Links</title>
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      display: block;
+      width: 125%;
+      height: 125%;
+      transform: scale(0.8);
+      transform-origin: 0 0;
+      border: none;
+    }
+  </style>
+
+</head>
+<body>
+  <iframe id="tela" src=""></iframe>
+
+  <script>
+    const links = [
+      "https://analytics.zoho.com/open-view/2895218000002804090",
+      "https://analytics.zoho.com/open-view/2895218000002829277",
+      "https://analytics.zoho.com/open-view/2895218000001552299"
+    ];
+
+    let index = 0;
+    const tempoTroca = 15000; // Tempo de exibição: 15 segundos
+
+    function alternarLinks() {
+      document.getElementById("tela").src = links[index];
+      index = (index + 1) % links.length;
+    }
+
+    alternarLinks(); // Exibe o primeiro link
+    setInterval(alternarLinks, tempoTroca); // Alterna a cada 15 segundos
+  </script>
+</body>
+</html>
