@@ -24,13 +24,13 @@ jobs:
       - name: Cache Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: "8.5"
+          gradle-version: "8.7"   # <- aqui
 
       - name: Accept licenses
         run: yes | sdkmanager --licenses
 
       - name: Build Debug APK
-        run: ./gradlew :app:assembleDebug || gradle :app:assembleDebug
+        run: gradle :app:assembleDebug   # <- use o gradle do runner (8.7)
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
